@@ -1,0 +1,44 @@
+[
+  {
+    "repo_id": "facebook/dinov2-large",
+    "revision": "47b73eefe95e8d44ec3623f8890bd894b6ea2d6c",
+    "filename": "config.json",
+    "size_bytes": 549,
+    "sha256": "12df51c069a2dc1305e34ba71ef58bc2407ea553b75f4722a1715c1bce3bbed0"
+  },
+  {
+    "repo_id": "facebook/dinov2-large",
+    "revision": "47b73eefe95e8d44ec3623f8890bd894b6ea2d6c",
+    "filename": "preprocessor_config.json",
+    "size_bytes": 436,
+    "sha256": "14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828"
+  },
+  {
+    "repo_id": "facebook/dinov2-large",
+    "revision": "47b73eefe95e8d44ec3623f8890bd894b6ea2d6c",
+    "filename": "model.safetensors",
+    "size_bytes": 1217522888,
+    "sha256": "399fba97a95f22c36834418bc69373364a99af3a1153da1c0fb31db567c92e23"
+  },
+  {
+    "repo_id": "minzwon/MusicFM",
+    "revision": "4513b38bc25ad1d227b1980819b9691ba97f4d87",
+    "filename": "msd_stats.json",
+    "size_bytes": 2277,
+    "sha256": "c36c61ab10ca4d2e7fdfefc3fcc15205316bec276a06a47baa3641a62c546f22"
+  },
+  {
+    "repo_id": "minzwon/MusicFM",
+    "revision": "4513b38bc25ad1d227b1980819b9691ba97f4d87",
+    "filename": "pretrained_msd.pt",
+    "size_bytes": 1316802088,
+    "sha256": "218b483a0256ddef736267425fabb166fd97008983696bb9270def464b47bded"
+  },
+  {
+    "repo_id": "facebook/wav2vec2-conformer-rope-large-960h-ft",
+    "revision": "6b36ef01c6443c67ae7ed0822876d091ab50e4aa",
+    "filename": "config.json",
+    "size_bytes": 2239,
+    "sha256": "7a63cb5706c9a37483f1973a3c226d54eb504ce15cf62cb52637019540c8a75d"
+  }
+]

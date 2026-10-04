@@ -1,0 +1,3 @@
+-r requirements.txt
+torchaudio==2.8.0
+einops==0.8.1
