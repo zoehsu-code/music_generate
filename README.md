@@ -1,5 +1,9 @@
 # Video event curves — V2M-ZERO baseline
 
+## Analysis Results
+
+[Read the English 50-pair OSSL video–music alignment report](reports/ossl-test-50/README.md) — ranked scores, all 50 comparison plots, and downloadable curve data.
+
 ## Reproduce from GitHub (video + music)
 
 ```bash

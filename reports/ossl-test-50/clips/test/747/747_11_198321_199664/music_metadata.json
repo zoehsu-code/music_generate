@@ -1,0 +1,36 @@
+{
+  "cache_config": {
+    "audio_sha256": "e8a8e5f2c928b3ea8bdedfbbbbb4a46077fd493c75c812e8e399988e43a16775",
+    "weights": "4513b38bc25ad1d227b1980819b9691ba97f4d87",
+    "layer_ix": 7,
+    "sample_rate": 24000
+  },
+  "audio": {
+    "audio_path": "ossl-test/audio/test/747/747_11_198321_199664.wav",
+    "original_sample_rate": 44100,
+    "original_channels": 1,
+    "sample_rate": 24000,
+    "audio_start_pts_seconds": 0.0,
+    "num_samples": 322560,
+    "duration": 13.44,
+    "downmix": "arithmetic channel mean",
+    "resampler": "PyAV/FFmpeg"
+  },
+  "encoder": {
+    "encoder": "MusicFM-MSD",
+    "source_revision": "b83ebedb401bcef639b26b05c0c8bee1dc2dfe71",
+    "weight_revision": "4513b38bc25ad1d227b1980819b9691ba97f4d87",
+    "config_revision": "6b36ef01c6443c67ae7ed0822876d091ab50e4aa",
+    "layer_ix": 7,
+    "feature_rate_hz": 25,
+    "feature_shape": [
+      336,
+      1024
+    ],
+    "device": "mps",
+    "dtype": "float32",
+    "preprocessing_device": "cpu",
+    "timestamp_convention": "centered STFT and padded convolution centers; pair midpoints",
+    "implementation_choice": "MSD checkpoint and layer 7 follow MusicFM quick-start; V2M-ZERO does not specify these"
+  }
+}

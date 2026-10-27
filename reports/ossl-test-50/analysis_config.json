@@ -1,0 +1,19 @@
+{
+  "rate_hz": 25,
+  "hann_window": 31,
+  "hann_endpoint_span_seconds": 1.2,
+  "sensitivity_hann_window": 61,
+  "sensitivity_span_seconds": 2.4,
+  "max_lag_seconds": 2,
+  "main_score": "Pearson at zero lag on standardized, interpolated, smoothed curves",
+  "lag_sign": "positive: music change occurs later than video (corr(v(t),m(t+lag)))",
+  "lag_support": "same video anchors at all lags, trimmed by 2s on both sides; minimum 5s",
+  "time_alignment": "paired clips assumed to share clip start; use first decoded sample/frame as zero; no fitted shift",
+  "grouping": "top/bottom ceil(20% of quality-ok clips), descriptive only; ties ordered by clip_id",
+  "caveats": [
+    "Not a perceptual music-quality score",
+    "No hypothesis-test p-values: samples are autocorrelated",
+    "50 clips are a selected subset, not a random sample of OSSL",
+    "Smoothing and MusicFM context affect correlation; paired start alignment is an assumption"
+  ]
+}
