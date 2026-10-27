@@ -23,7 +23,7 @@ def _sha256(path):
     return digest.hexdigest()
 
 
-def save_outputs(result, output_dir, save_features=False, compare_offsets=False):
+def save_outputs(result, output_dir, save_features=False, compare_offsets=False, save_plot=True):
     """Write into a temporary sibling directory; refuse to overwrite prior runs."""
     from .visualization import plot_event_curve, plot_offset_comparison
 
@@ -43,8 +43,9 @@ def save_outputs(result, output_dir, save_features=False, compare_offsets=False)
         metadata = result["metadata"].copy()
         metadata["outputs"] = {name: {"file": f"{stem}_{name}.npy", "shape": list(array.shape),
                                       "dtype": str(array.dtype)} for name, array in arrays.items()}
-        plot_event_curve(result["curves"], temporary / f"{stem}_event_curve.png",
-                         stem, metadata["duration"])
+        if save_plot:
+            plot_event_curve(result["curves"], temporary / f"{stem}_event_curve.png",
+                             stem, metadata["duration"])
         if compare_offsets:
             comparisons = {}
             for offset in (1, 15, 60):
@@ -78,7 +79,8 @@ def extract_video_event_curve(video_path, frame_offset=1, hann_window=31,
                               target_length=None, batch_size=32, device="auto",
                               feature_pooling="mean_patch", output_dir=None,
                               save_features=False, compare_offsets=False,
-                              cache_dir=None, local_files_only=False):
+                              cache_dir=None, local_files_only=False, encoder_bundle=None,
+                              raw_only=False, save_plot=True):
     """Return features [T,1024], timestamps [T], curves, metadata, and output path.
 
     Every decoded frame is encoded once. Only a batch of RGB frames is kept in
@@ -98,13 +100,23 @@ def extract_video_event_curve(video_path, frame_offset=1, hann_window=31,
         raise FileExistsError("Output already exists; choose a different --output_dir")
     from .dinov2_encoder import (MODEL_ID, MODEL_REVISION, load_dinov2,
                                  extract_dinov2_features)
-    model, processor, selected = load_dinov2(device, cache_dir, local_files_only)
+    model, processor, selected = (encoder_bundle if encoder_bundle is not None else
+                                  load_dinov2(device, cache_dir, local_files_only))
     features, times = extract_dinov2_features(video.extract_frames(), model, processor,
                                               selected, batch_size, feature_pooling)
     if compare_offsets and len(times) <= 60:
         raise ValueError("Offset comparison requires at least 61 decoded frames")
-    curves = curves_from_features(features, times, frame_offset, hann_window, target_length)
-    raw, normalized = curves["raw_event_curve"], curves["normalized_event_curve"]
+    if raw_only and (compare_offsets or target_length is not None or save_plot):
+        raise ValueError("raw_only requires no resampling, offset comparison, or plot")
+    if raw_only:
+        from .event_curve import compute_cosine_dissimilarity, compute_timestamps
+        curves = {"raw_event_curve": compute_cosine_dissimilarity(features, frame_offset),
+                  "native_timestamps": compute_timestamps(times, frame_offset)}
+    else:
+        curves = curves_from_features(features, times, frame_offset, hann_window, target_length)
+    raw = curves["raw_event_curve"]
+    from .event_curve import standardize_curve
+    normalized = standardize_curve(raw)
     metadata = {
         **video.metadata, "input_sha256": _sha256(video.path),
         "paper": "https://arxiv.org/html/2603.11042v2#S3.SS2",
@@ -114,7 +126,10 @@ def extract_video_event_curve(video_path, frame_offset=1, hann_window=31,
             if feature_pooling == "mean_patch" else "last_hidden_state: CLS token at index 0",
         "feature_dimension": features.shape[1], "feature_shape": list(features.shape),
         "frame_offset": frame_offset, "raw_curve_length": len(raw), "target_length": target_length,
-        "final_curve_length": len(curves["event_curve"]), "hann_window": hann_window,
+        "final_curve_length": len(curves.get("event_curve", raw)),
+        "output_mode": "raw_only" if raw_only else "full",
+        "hann_window": None if raw_only else hann_window,
+        "smoothing_applied": not raw_only and hann_window > 1,
         "hann_definition": "symmetric, sum-normalized, centered, edge-replicated padding",
         "hann_window_units": "samples on final curve grid, not original frames after resampling",
         "timestamp_convention": "midpoint of compared frames; first decoded frame is t=0",
@@ -136,5 +151,5 @@ def extract_video_event_curve(video_path, frame_offset=1, hann_window=31,
     }
     result = {"features": features, "frame_timestamps": times, "curves": curves, "metadata": metadata}
     if output_dir is not None:
-        save_outputs(result, output_dir, save_features, compare_offsets)
+        save_outputs(result, output_dir, save_features, compare_offsets, save_plot)
     return result

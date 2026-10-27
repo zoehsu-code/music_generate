@@ -258,3 +258,144 @@ comparison while preserving the native results. Outputs:
 
 This is an event-curve comparison only; it does not generate music, detect beats,
 compute correlation, shift curves to improve agreement, or train a model.
+
+## OSSL-v2 video-only batch extraction on Lighthouse
+
+`extract_ossl_batch.py` reads `splits/train.txt` and `splits/test.txt`, then
+opens `<split>/video/<movie_id>/<clip_id>.mp4`. Audio files are not used.
+Each process loads DINOv2 once and reuses it across clips. Extraction preserves
+all frames and computes offset-1 cosine dissimilarity, with no temporal
+resampling or smoothing. The batch outputs are:
+
+```
+RESULT_ROOT/
+  train/<movie_id>/<clip_id>/
+    <clip_id>_raw_event_curve.npy
+    <clip_id>_native_timestamps.npy
+    <clip_id>_frame_timestamps.npy
+    metadata.json
+  test/<movie_id>/<clip_id>/...
+  _logs/shard-<index>-<unique-run-id>.jsonl
+  _locks/<split>/<movie_id>/<clip_id>.lock
+```
+
+The raw curve and its native timestamps are the authoritative downstream inputs.
+Standardize per clip, then resample and smooth later as needed. Normalization
+statistics are recorded, but normalized/smoothed arrays and plots are not written
+in batch mode. `--save-features` optionally saves the much larger `[T,1024]`
+feature matrix; it is unnecessary for later resampling/smoothing, but necessary
+if you want to recompute other feature offsets without rerunning the encoder.
+The original single-video CLI keeps its existing behavior.
+
+### 1. Prepare storage and environment
+
+Use your actual project scratch paths; do not put the whole dataset in home.
+Obtain the authorized Slurm account via `my_accounts` and confirm the associated
+GPU partition. Account and partition names are deliberately not hard-coded.
+
+```bash
+export PROJECT_DIR=/absolute/path/to/music_generate
+export OSSL_ROOT=/absolute/project/scratch/OSSL-v2
+export RESULT_ROOT=/absolute/project/scratch/ossl-event-curves
+export HF_HOME=/absolute/project/scratch/huggingface
+cd "$PROJECT_DIR"
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Use a Lighthouse-provided Python module if Python 3.12 is not already available
+(`module avail`); install a CUDA-compatible PyTorch build for the cluster's
+GPU/driver using the official PyTorch installer instructions if necessary.
+The batch launcher refuses CPU fallback when CUDA was requested.
+Do not copy the macOS virtual environment to Linux.
+
+Download only video files and text metadata (roughly 108 GB for videos at the
+pinned revision below), using a site-approved transfer node/session:
+
+```bash
+hf download McAuley-Lab/OSSL-v2 --repo-type dataset \
+  --revision 3ed5a37d933084e5ec134e2138b8faa156cf021b \
+  --include 'train/video/*' 'test/video/*' 'splits/*' 'metadata.csv' 'README.md' \
+  --local-dir "$OSSL_ROOT"
+```
+
+Download/cache only the DINOv2 model and processor once before launching GPU
+jobs. This loads the model on CPU but does not run video inference:
+
+```bash
+python - <<'PY'
+import os
+from video_event_curve.dinov2_encoder import load_dinov2
+load_dinov2('cpu', os.path.join(os.environ['HF_HOME'], 'hub'))
+PY
+```
+
+Keep the same pinned dataset snapshot for an entire run. Each saved output
+also records the individual input SHA-256 and the model revision.
+
+### 2. Inspect inputs, then run a small GPU smoke test
+
+Listing the first four test clips needs no model weights or GPU:
+
+```bash
+python extract_ossl_batch.py --dataset-root "$OSSL_ROOT" \
+  --output-root "$RESULT_ROOT" --splits test --limit 4 --dry-run
+```
+
+Create logs before submission; run `sbatch` from the repository directory.
+Replace `YOUR_ACCOUNT` and `YOUR_GPU_PARTITION` with your authorized values.
+The resource requests are starting points, not a statement about your quota.
+
+```bash
+mkdir -p logs
+sbatch --account=YOUR_ACCOUNT --partition=YOUR_GPU_PARTITION \
+  --array=0-0 slurm/lighthouse_ossl.sbatch --splits test --limit 4
+```
+
+Check Slurm output for CUDA use and successful per-clip completion before
+launching the full set. No real Lighthouse run has been performed by this repo's
+local automated tests.
+
+### 3. Submit all clips
+
+```bash
+sbatch --account=YOUR_ACCOUNT --partition=YOUR_GPU_PARTITION \
+  --array=0-15%2 slurm/lighthouse_ossl.sbatch
+```
+
+This example splits the sorted clip list into 16 disjoint shards, with at most
+2 concurrent jobs. Each job requests 1 GPU, 4 CPU cores, 32 GB RAM and 12 hours;
+adjust these requests and concurrency to the PI's hardware/permissions. This
+walltime is a starting request, not a runtime prediction. Use zero-based,
+contiguous arrays with step 1. `BATCH_SIZE=4` is the default; increase it after
+measuring GPU memory. Keep native float32 inference for consistency.
+
+For an already allocated interactive GPU, the equivalent one-process run is:
+
+```bash
+python -u extract_ossl_batch.py --dataset-root "$OSSL_ROOT" \
+  --output-root "$RESULT_ROOT" --cache-dir "$HF_HOME/hub" \
+  --local-files-only --device cuda --batch-size 4
+```
+
+### Resume and failures
+
+Resubmit the same command to resume after a timeout or interruption. Completed
+outputs are skipped only after checking extraction settings, input SHA-256,
+array existence, shapes, dtypes and finite values. Files are published by an
+atomic directory rename after a clip completes. A crash may leave a hidden
+temporary directory; it is ignored on retry. Per-clip advisory file locks prevent
+duplicate work by concurrent launchers on filesystems supporting `flock`.
+
+An incompatible or corrupted existing output is reported as a failure and never
+overwritten: move that clip's directory aside, or choose a new output root,
+before retrying. Bad/missing videos are logged while subsequent clips continue.
+Each run writes a unique JSONL log, a completion summary, and returns nonzero
+if any assigned clip failed. Consult logs even when Slurm reports a failed job:
+other clips may have completed successfully. Shards are based on sorted IDs,
+not estimated duration, so job lengths can vary.
+
+Local validation includes synthetic MP4 decoding, model reuse, corrupt-video
+isolation, verified resume, rejection of changed settings/corrupt outputs, and
+disjoint sharding. It does not measure actual Lighthouse GPU throughput.
