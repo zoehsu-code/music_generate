@@ -2,7 +2,7 @@
 
 ## Analysis Results
 
-[Read the English 50-pair OSSL video–music alignment report](reports/ossl-test-50/README.md) — ranked scores, all 50 comparison plots, and downloadable curve data.
+[Open the GitHub Pages report](https://zoehsu-code.github.io/music_generate/report.html) · [Read the English 50-pair OSSL video–music alignment report](reports/ossl-test-50/README.md) — ranked scores, all 50 comparison plots, and downloadable curve data.
 
 ## Reproduce from GitHub (video + music)
 
@@ -403,3 +403,7 @@ not estimated duration, so job lengths can vary.
 Local validation includes synthetic MP4 decoding, model reuse, corrupt-video
 isolation, verified resume, rejection of changed settings/corrupt outputs, and
 disjoint sharding. It does not measure actual Lighthouse GPU throughput.
+
+### Rebuild the OSSL test-50 report from saved curves
+
+Run `python3 scripts/build_ossl_report.py` from the repository root. This uses only the saved `aligned_curves.csv` files; no encoders, model weights, original media, or third-party Python packages are needed. It preserves existing Pearson scores/ranks and adds per-sample mean and median absolute difference (lower is better), difference curves, and report tables. Push report changes to `main` to deploy through `.github/workflows/pages.yml`. For the first deployment, enable **Settings → Pages → Source → GitHub Actions** in the repository.
