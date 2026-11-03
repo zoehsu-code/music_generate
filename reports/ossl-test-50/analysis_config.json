@@ -15,5 +15,10 @@
     "No hypothesis-test p-values: samples are autocorrelated",
     "50 clips are a selected subset, not a random sample of OSSL",
     "Smoothing and MusicFM context affect correlation; paired start alignment is an assumption"
-  ]
+  ],
+  "absolute_difference": {
+    "definition": "Absolute differences use the same saved, independently standardized, 25 Hz aligned and 1.2-second Hann-smoothed curves as the primary Pearson score, at zero lag over the full common interval. For each sample, d(t) = |video(t) - music(t)|; mean absolute difference = mean(d), median absolute difference = median(d). Lower is better (0 means identical curves), in standardized curve units, not raw audio/video units. Pearson is higher-is-better and measures co-variation; absolute difference also reflects amplitude mismatch. Smoothing changes amplitude, so these values should only be compared with the same preprocessing. Ranks and high/low groups remain based on Pearson; neither metric measures perceptual music quality.",
+    "source": "saved aligned_curves.csv",
+    "encoder_rerun": false
+  }
 }

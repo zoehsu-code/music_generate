@@ -28,5 +28,7 @@
     "748_22_185534_188558",
     "747_5_53512_55608",
     "746_0_4192_5407"
-  ]
+  ],
+  "mean_of_sample_mean_absolute_difference": 0.44948887623894634,
+  "median_of_sample_median_absolute_difference": 0.3495984131572151
 }
