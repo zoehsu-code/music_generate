@@ -17,10 +17,10 @@ PEARSON = 'pearson_zero_lag'
 SOURCE = ('https://huggingface.co/datasets/McAuley-Lab/OSSL-v2/blob/'
           '3ed5a37d933084e5ec134e2138b8faa156cf021b')
 QUADRANTS = (
-    ('high-low', 'High Pearson · Low difference', '高相关 · 小差异', '#0f766e'),
-    ('high-high', 'High Pearson · High difference', '高相关 · 大差异', '#a16207'),
-    ('low-low', 'Low Pearson · Low difference', '低相关 · 小差异', '#1d4ed8'),
-    ('low-high', 'Low Pearson · High difference', '低相关 · 大差异', '#a21caf'),
+    ('high-low', 'High Pearson · Low difference', '#0f766e'),
+    ('high-high', 'High Pearson · High difference', '#a16207'),
+    ('low-low', 'Low Pearson · Low difference', '#1d4ed8'),
+    ('low-high', 'Low Pearson · High difference', '#a21caf'),
 )
 METHOD = ('Absolute differences use the same saved, independently standardized, '
           '25 Hz aligned and 1.2-second Hann-smoothed curves as the primary Pearson score, '
@@ -102,7 +102,7 @@ def build_quadrants(root, rows):
               '<text x="372" y="364" text-anchor="middle">Zero-lag Pearson r</text>',
               '<text transform="translate(17 174) rotate(-90)" text-anchor="middle">Mean absolute difference</text>']
     links, sections = [], []
-    for key, label, chinese, color in QUADRANTS:
+    for key, label, color in QUADRANTS:
         samples = sorted(groups[key], key=lambda row: (-float(row[PEARSON]), row['clip_id']))
         links.append(f'<a href="#{key}" style="--accent:{color}"><strong>{len(samples)}</strong> '
                      f'{label}</a>')
@@ -118,17 +118,17 @@ def build_quadrants(root, rows):
                          f'r {pearson:.3f} · difference {difference:.3f}</title></circle></a>')
             table.append(f'<tr id="clip-{clip}"><th scope="row">{clip}</th><td>{pearson:.4f}</td>'
                          f'<td>{difference:.4f}</td><td><a href="{video}" target="_blank" '
-                         f'rel="noopener">原视频 ↗</a></td><td><a href="{figure}">曲线对比</a></td></tr>')
-        sections.append(f'<section id="{key}" style="--accent:{color}"><h2>{chinese} '
-                        f'<span>· {len(samples)} 对</span></h2><div class="scroll"><table><thead><tr>'
+                         f'rel="noopener">Source video ↗</a></td><td><a href="{figure}">Compare curves</a></td></tr>')
+        sections.append(f'<section id="{key}" style="--accent:{color}"><h2>{label} '
+                        f'<span>· {len(samples)} pairs</span></h2><div class="scroll"><table><thead><tr>'
                         '<th scope="col">Clip ID</th><th scope="col">Pearson r</th>'
-                        '<th scope="col">平均绝对差异</th><th scope="col">Hugging Face</th>'
-                        '<th scope="col">对齐曲线</th></tr></thead><tbody>'
+                        '<th scope="col">Mean absolute difference</th><th scope="col">Hugging Face</th>'
+                        '<th scope="col">Aligned curves</th></tr></thead><tbody>'
                         + '\n'.join(table) + '</tbody></table></div></section>')
     chart.append('</svg>')
     (root / 'quadrants.html').write_text(f'''<!doctype html>
-<html lang="zh-Hans"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OSSL-v2 Test-50 · Pearson × 平均绝对差异</title>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OSSL-v2 Test-50 · Pearson × Mean Absolute Difference</title>
 <style>
 body{{font:16px/1.6 system-ui,sans-serif;background:#f8fafc;color:#172033;margin:0}}
 main{{max-width:1000px;margin:auto;padding:28px 18px 60px}} a{{color:#1d4ed8;text-underline-offset:3px}}
@@ -144,14 +144,15 @@ th,td{{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0;white-space:
 tbody th{{font:inherit}} thead{{background:#f1f5f9}} tr:target{{background:#fef3c7}}
 </style>
 <main>
-<a href="report.html">← 原始 Test-50 报告</a>
-<header class="intro"><p>OSSL-v2 · Test-50 · {len(rows)} 对</p><h1>Pearson × 平均绝对差异</h1>
-<p>用这批样本各自的中位数作分界。零延迟 Pearson ≥ <strong>{pearson_cut:.6f}</strong> 为高相关，
-平均绝对差异 ≤ <strong>{difference_cut:.6f}</strong> 为小差异。归组使用未四舍五入的数值。</p>
-<p>两项指标使用同一套 25 Hz 对齐曲线和 1.2 秒 Hann 平滑。高低是这 50 对样本内的相对分组。
-样本来自三部电影。平均绝对差异是每个片段逐时间点绝对差的均值。</p>
-<nav class="groups" aria-label="四象限分组">{''.join(links)}</nav></header>
-<div class="chart"><p>点散点可跳到对应样本。表格里的原视频链接会打开 Hugging Face。</p>
+<a href="report.html">← Original Test-50 report</a>
+<header class="intro"><p>OSSL-v2 · Test-50 · {len(rows)} pairs</p><h1>Pearson × Mean Absolute Difference</h1>
+<p>Each metric is split at its median in this sample. High correlation means zero-lag Pearson r ≥
+<strong>{pearson_cut:.6f}</strong>. Low difference means mean absolute difference ≤ <strong>{difference_cut:.6f}</strong>.
+Group assignments use the unrounded scores.</p>
+<p>Both metrics use the same aligned curves on a 25 Hz grid with 1.2 seconds of Hann smoothing.
+The groups are relative to these 50 pairs from three films. Mean absolute difference averages the pointwise absolute differences over each clip.</p>
+<nav class="groups" aria-label="Quadrant groups">{''.join(links)}</nav></header>
+<div class="chart"><p>Select a point to jump to its sample. Source video links open the original clips on Hugging Face.</p>
 {''.join(chart)}</div>
 {''.join(sections)}
 </main></html>
