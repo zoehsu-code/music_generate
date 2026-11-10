@@ -1,6 +1,7 @@
 <!doctype html><meta charset="utf-8"><title>OSSL Event Alignment</title>
 <style>body{font:16px system-ui;max-width:1150px;margin:40px auto;padding:0 20px;background:#f8fafc;color:#172033}table{border-collapse:collapse;width:100%;background:white}th,td{padding:10px;text-align:left;border-bottom:1px solid #ddd}img{width:100%}a{color:#2563eb}</style>
 <h1>OSSL Video and Paired Music: Event Curve Analysis</h1>
+<p><a href="quadrants.html">Pearson × Mean Absolute Difference quadrants · 50 original videos</a></p>
 <p>Both curves are independently standardized and aligned to a common 25 Hz time grid, then smoothed with a 31-point symmetric Hann window (1.2-second endpoint span). The primary score is the zero-lag Pearson correlation. Blue: video; orange: music.</p>
 <p>High and low denote the top and bottom 20% of eligible samples in this batch, not absolute quality labels. Paired clips are assumed to share the same start time; no music shift is applied when computing the primary score. Positive diagnostic lag means music changes occur later. Lag correlations use a fixed, cropped time interval and should not be compared directly with the primary full-interval score.</p>
 <p><a href="alignment_scores.csv">Download Ranked Scores (CSV)</a> · <a href="analysis_config.json">Configuration</a> · <a href="summary.json">Summary and Errors</a></p>

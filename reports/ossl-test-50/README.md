@@ -2,6 +2,8 @@
 
 All 50 pairs completed successfully. Click a clip ID below to view its comparison plot.
 
+[Pearson × Mean Absolute Difference quadrants](quadrants.html) · Four groups with original video links.
+
 [Ranked scores (CSV)](alignment_scores.csv) · [Analysis configuration](analysis_config.json) · [Summary](summary.json)
 
 ## Method
