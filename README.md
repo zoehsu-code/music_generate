@@ -1,6 +1,16 @@
 # Video event curves — V2M-ZERO baseline
 
+## OSSL MusicFM extraction on Lighthouse
+
+See [the MusicFM submission guide](slurm/MUSIC_SUBMISSION.md) for the new
+`extract_ossl_music_batch.py` and `slurm/lighthouse_music.sbatch` workflow:
+WAV or MP4 inputs, one model load per shard, explicit scratch cache, atomic raw
+curve outputs, verified resume and isolated failures. The existing
+`lighthouse_ossl.sbatch` remains the video-only workflow.
+
 ## Analysis Results
+
+[Experiment log](EXPERIMENT_LOG.md) · Dataset locations, verified results, and open research tasks.
 
 [Open the GitHub Pages report](https://zoehsu-code.github.io/music_generate/report.html) · [Read the English 50-pair OSSL video–music alignment report](reports/ossl-test-50/README.md) — ranked scores, all 50 comparison plots, and downloadable curve data.
 

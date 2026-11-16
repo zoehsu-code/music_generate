@@ -11,10 +11,8 @@ WEIGHT_REVISION = "4513b38bc25ad1d227b1980819b9691ba97f4d87"
 CONFIG_REVISION = "6b36ef01c6443c67ae7ed0822876d091ab50e4aa"
 
 
-def extract_musicfm_features(waveform, device="mps", layer_ix=7,
-                             cache_dir=".cache/huggingface", local_files_only=False):
-    if not 0 <= layer_ix <= 12:
-        raise ValueError("layer_ix must be in [0,12]")
+def load_musicfm(device="mps", cache_dir=".cache/huggingface", local_files_only=False):
+    """Load once; keep spectrogram preprocessing on CPU for repeated inference."""
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "third_party"))
     from musicfm.model.musicfm_25hz import MusicFM25Hz
     options = dict(cache_dir=cache_dir, local_files_only=local_files_only)
@@ -33,10 +31,20 @@ def extract_musicfm_features(waveform, device="mps", layer_ix=7,
     model.load_state_dict({key[6:]: value for key, value in state.items()}, strict=True)
     del state, checkpoint
     model.eval().requires_grad_(False)
-    # STFT uses complex tensors; run the unchanged official preprocessing on CPU.
+    model.to(selected)
+    model.preprocessor_melspec_2048.cpu()
+    return model, selected
+
+
+def extract_musicfm_features(waveform, device="mps", layer_ix=7,
+                             cache_dir=".cache/huggingface", local_files_only=False,
+                             encoder_bundle=None):
+    if not 0 <= layer_ix <= 12:
+        raise ValueError("layer_ix must be in [0,12]")
+    model, selected = (encoder_bundle if encoder_bundle is not None else
+                       load_musicfm(device, cache_dir, local_files_only))
     with torch.inference_mode():
         mel = model.normalize(model.preprocessing(torch.from_numpy(waveform)[None], ["melspec_2048"]))
-        model.to(selected)
         print(f"Encoding {len(waveform)/24000:.2f} seconds of audio", flush=True)
         _, hidden = model.encoder(mel["melspec_2048"].to(selected))
         features = hidden[layer_ix][0].float().cpu().numpy()
