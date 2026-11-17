@@ -1,0 +1,17 @@
+{
+  "expected": 31011,
+  "scored": 30953,
+  "excluded": 57,
+  "failed": 1,
+  "eligible": 30946,
+  "pearson_threshold": -0.005768197233234778,
+  "mean_absolute_difference_threshold": 0.43030145525531094,
+  "quadrant_counts": {
+    "high_correlation_high_difference": 5884,
+    "low_correlation_low_difference": 5884,
+    "low_correlation_high_difference": 9589,
+    "high_correlation_low_difference": 9589,
+    "review": 7
+  },
+  "note": "Saved-curve audit only; input media hashes are recorded, not recomputed."
+}

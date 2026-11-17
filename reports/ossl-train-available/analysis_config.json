@@ -1,0 +1,15 @@
+{
+  "manifest_sha256": "0f0a23fa9e3558e97fff46e3c1a9cb5d8dffbbc8aa52159aac8c9b5dcf5baba4",
+  "rate_hz": 25,
+  "hann_window": 31,
+  "sensitivity_hann_window": 61,
+  "max_lag_seconds": 2,
+  "standardization": "per clip, population std, eps=1e-8",
+  "time_alignment": "coincident clip starts; no fitted shift",
+  "music_support": "midpoints strictly before decoded audio duration",
+  "exclusion_reason": "User deferred 57 CUDA OOM clips; duration-related selection bias possible",
+  "quadrant_thresholds": "medians of quality-ok pairs in this run; ties high r / low difference",
+  "video_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves",
+  "music_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/music_event_curves/msd_l7_wav_run01",
+  "save_aligned": false
+}

@@ -10,6 +10,8 @@ curve outputs, verified resume and isolated failures. The existing
 
 ## Analysis Results
 
+[Read the full Train report (30,953 scored pairs)](reports/ossl-train-available/README.md) · [Open the interactive Train report](https://zoehsu-code.github.io/music_generate/train/report.html)
+
 [Experiment log](EXPERIMENT_LOG.md) · Dataset locations, verified results, and open research tasks.
 
 [Open the GitHub Pages report](https://zoehsu-code.github.io/music_generate/report.html) · [Read the English 50-pair OSSL video–music alignment report](reports/ossl-test-50/README.md) — ranked scores, all 50 comparison plots, and downloadable curve data.

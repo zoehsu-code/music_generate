@@ -108,6 +108,52 @@ Slurm accounting confirms that job `27987221_0` (`ossl-events`) completed under 
   output root's `_logs/`. Completed smoke-test outputs should be validated and
   skipped by the full run. Existing video outputs are separate.
 
+## EXP-09 · November 17 · Available Train Saved-Curve Analysis
+
+- **Scope and method.** User deferred the 57 OOM clips from EXP-08. Published
+  analysis code at `9b56559`; no encoder reruns. Test-50 preprocessing and metrics
+  with per-run eligible-sample median quadrant thresholds (see preparation notes).
+- **Run.** User-provided accounting identifies job `28185053`, elapsed 00:09:10,
+  state FAILED, exit 1:0. The saved summary reports expected=31,011,
+  scored=30,953, excluded=57, failed=1, eligible=30,946. Seven scored pairs are
+  marked review. The single unexpected failure causes the nonzero job exit;
+  the reason and the seven quality flags have not yet been supplied.
+- **Results.** Median eligible zero-lag Pearson is -0.005768197233234778;
+  median eligible per-pair mean absolute difference is 0.43030145525531094.
+  Quadrants: high correlation/low difference 9,589; high correlation/high
+  difference 5,884; low correlation/low difference 5,884; low correlation/high
+  difference 9,589. These are relative subset thresholds, not absolute alignment
+  labels. Highest displayed Pearson is 0.8862672986457293 for
+  `615_4_123732_125043`. Full distribution and failed/review cases remain to audit.
+- **Artifacts.** User confirmed
+  `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_saved_curves_28185053/`
+  containing summary and scores; issue details are in `issues.csv`. Stdout/stderr
+  are `logs/alignment-28185053.out` and `.err` in the cluster checkout; displayed
+  stderr size was zero. No recovery or corrected run has been performed.
+- **Summary-based report (2026-11-17).** At the user's request, focus on scored
+  pairs rather than failure recovery. Created local
+  `reports/ossl-train-available/report.html`, README and transcribed summary JSON
+  from supplied summary and five highest-ranked rows. Contains method, coverage,
+  quadrant counts/shares, examples and interpretation limits. Full CSV has not
+  been transferred; distribution plots, full rankings and movie-level results
+  are not claimed. This report has not been published to GitHub Pages.
+- **Full score-table report (2026-11-17).** User supplied the full CSV,
+  configuration and summary from `~/Downloads/ossl-train-report/`. Replaced the
+  summary-based edition using `scripts/build_train_report.py`. Reconciled
+  30,953 unique score rows, 30,946 quality-ok rows, all quadrant assignments,
+  both median thresholds and all counts against supplied summary. Added
+  histograms, all-eligible quadrant scatter, smoothing sensitivity, top/bottom
+  10 examples, three near-median examples per quadrant, and a standalone HTML
+  browser containing all score rows. No raw curve/media reconstruction.
+  Eligible Pearson mean=-0.00424247, median=-0.00576820, positive=15,155
+  (48.9724%), r>=0.5=828 (2.6756%); eligible movie IDs=1,648. Median mean
+  absolute difference=0.43030146. Seven review rows comprise five duration
+  mismatches and two near-constant cases. Source hashes and derived statistics
+  saved in `reports/ossl-train-available/report_statistics.json`.
+  Chart PNGs visually checked; HTML JavaScript search, filtering and sorting
+  tested using a DOM stub. Browser visual check could not launch in this
+  environment. No GitHub upload performed in this report-generation phase.
+
 ## DATA-01 · November 10 · Lighthouse Download Audit
 
 On `lh-login2`, checked the expected MP4 and WAV paths for existence and nonzero size against the unique clip IDs in the local train and test manifests. The total and unique ID counts for both splits matched the official counts.
@@ -123,7 +169,7 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
 
 ## Open Research Tasks
 
-- **Available Train paired analysis (2026-11-17, prepared, not submitted).**
+- **Available Train paired analysis (2026-11-17, initial run recorded in EXP-09).**
   Added `analyze_saved_ossl.py`, `music_alignment_metrics.py`, and
   `slurm/lighthouse_alignment.sbatch`; instructions in
   `slurm/ALIGNMENT_SUBMISSION.md`. Analyze the 30,954 reported available pairs,
@@ -132,8 +178,9 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
   absolute difference; include Hann-61 and fixed-support lag sensitivity.
   Quadrants use medians of this run's quality-ok subset. Unit tests passed (2);
   independent reproduction of three saved metrics for all 50 Test-50 pairs
-  had maximum absolute error 1.11e-16. No Train scores have been computed locally
-  and no analysis Slurm job has been submitted. Exclusion may bias duration mix.
+  had maximum absolute error 1.11e-16. Train run 28185053 produced 30,953 score
+  rows; inspect its one unexpected failure and seven review cases before final
+  interpretation. Exclusion may bias duration mix.
 
 - **Train MusicFM extraction (EXP-08, submitted 2026-11-16).** Check array
   `28176562`, aggregate shard summaries, and validate all 31,011 outputs against

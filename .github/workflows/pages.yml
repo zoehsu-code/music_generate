@@ -24,10 +24,15 @@ jobs:
           python3 -m unittest discover -s tests -p test_ossl_report.py
           python3 scripts/build_ossl_report.py
           git diff --exit-code -- reports/ossl-test-50
+      - name: Stage Test-50 and Train reports
+        run: |
+          mkdir -p _site/train
+          cp -a reports/ossl-test-50/. _site/
+          cp -a reports/ossl-train-available/. _site/train/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: reports/ossl-test-50
+          path: _site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
