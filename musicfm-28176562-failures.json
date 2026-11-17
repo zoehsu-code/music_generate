@@ -1,0 +1,458 @@
+[
+  {
+    "split": "train",
+    "clip_id": "268_0_960_75915",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/268/268_0_960_75915.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 20.93 GiB. GPU 0 has a total capacity of 44.39 GiB of which 20.74 GiB is free. Including non-PyTorch memory, this process has 23.64 GiB memory in use. Of the allocated memory 22.67 GiB is allocated by PyTorch, and 484.64 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.606029151007533
+  },
+  {
+    "split": "train",
+    "clip_id": "266_0_160_100495",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/266/266_0_160_100495.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 37.50 GiB. GPU 0 has a total capacity of 44.39 GiB of which 36.44 GiB is free. Including non-PyTorch memory, this process has 7.94 GiB memory in use. Of the allocated memory 1.92 GiB is allocated by PyTorch, and 5.53 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.135040979832411
+  },
+  {
+    "split": "train",
+    "clip_id": "266_10_366701_432327",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/266/266_10_366701_432327.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 16.05 GiB. GPU 0 has a total capacity of 44.39 GiB of which 9.80 GiB is free. Including non-PyTorch memory, this process has 34.58 GiB memory in use. Of the allocated memory 33.83 GiB is allocated by PyTorch, and 261.89 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.428159009665251
+  },
+  {
+    "split": "train",
+    "clip_id": "202_12_147288_208417",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/202/202_12_147288_208417.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 60.00 MiB. GPU 0 has a total capacity of 44.39 GiB of which 57.31 MiB is free. Including non-PyTorch memory, this process has 44.33 GiB memory in use. Of the allocated memory 43.59 GiB is allocated by PyTorch, and 249.63 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.62459727935493
+  },
+  {
+    "split": "train",
+    "clip_id": "202_13_209218_308130",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/202/202_13_209218_308130.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 36.45 GiB. GPU 0 has a total capacity of 44.39 GiB of which 5.14 GiB is free. Including non-PyTorch memory, this process has 39.25 GiB memory in use. Of the allocated memory 38.36 GiB is allocated by PyTorch, and 406.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.161275364458561
+  },
+  {
+    "split": "train",
+    "clip_id": "704_0_0_78460",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/704/704_0_0_78460.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 22.94 GiB. GPU 0 has a total capacityof 44.39 GiB of which 18.76 GiB is free. Including non-PyTorch memory, this process has 25.63 GiB memory in use. Of the allocated memory 24.70 GiB is allocated by PyTorch, and 440.74 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.5422019846737385
+  },
+  {
+    "split": "train",
+    "clip_id": "268_1_75948_172347",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/268/268_1_75948_172347.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 34.62 GiB. GPU 0 has a totalcapacity of 44.39 GiB of which 6.86 GiB is free. Including non-PyTorch memory, this process has 37.52 GiB memory in use. Of the allocated memory 36.51 GiB isallocated by PyTorch, and 531.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.232957251369953
+  },
+  {
+    "split": "train",
+    "clip_id": "117_4_74956_194911",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/117/117_4_74956_194911.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 53.61 GiB. GPU 0 has a total capacity of 44.39 GiB of which 41.60 GiB is free. Including non-PyTorch memory, this process has 2.79 GiB memory in use. Of the allocated memory 2.05 GiB isallocated by PyTorch, and 252.03 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.5129511319100857
+  },
+  {
+    "split": "train",
+    "clip_id": "266_7_172028_278157",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/266/266_7_172028_278157.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 41.96 GiB. GPU 0 has a total capacity of 44.39 GiB of which 33.54 GiB is free. Including non-PyTorch memory, this process has 10.85 GiB memory in use. Of the allocated memory 1.95 GiBis allocated by PyTorch, and 8.40 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.107172444462776
+  },
+  {
+    "split": "train",
+    "clip_id": "117_5_195008_258042",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/117/117_5_195008_258042.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.80 GiB. GPU 0 has a total capacity of 44.39 GiB of which 12.32 GiB is free. Including non-PyTorch memory, this process has 32.07 GiB memory in use. Of the allocated memory 31.33 GiB is allocated by PyTorch, and 250.08 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.03748687915504
+  },
+  {
+    "split": "train",
+    "clip_id": "163_4_45271_142438",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/163/163_4_45271_142438.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 35.17 GiB. GPU 0 has a total capacity of 44.39 GiB of which 889.31 MiB is free. Including non-PyTorch memory, this process has 43.52 GiB memory in use. Of the allocated memory 37.07 GiBis allocated by PyTorch, and 5.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.761960545554757
+  },
+  {
+    "split": "train",
+    "clip_id": "266_9_282367_365499",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/266/266_9_282367_365499.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 25.75 GiB. GPU 0 has a total capacity of 44.39 GiB of which 16.04 GiB is free. Including non-PyTorch memory, this process has 28.34 GiB memory in use. Of the allocated memory 27.55 GiB is allocated by PyTorch, and 308.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.8570085167884827
+  },
+  {
+    "split": "train",
+    "clip_id": "980_0_256_81820",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/980/980_0_256_81820.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 24.79 GiB. GPU 0 has a total capacity of 44.39 GiB of which 7.27 GiB is free. Including non-PyTorch memory, this process has 37.11 GiB memory in use. Of the allocated memory 26.57 GiB is allocated by PyTorch, and 10.04 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.497166655957699
+  },
+  {
+    "split": "train",
+    "clip_id": "535_5_76716_158521",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/535/535_5_76716_158521.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 24.93 GiB. GPU 0 has a total capacity of 44.39 GiB of which 16.31 GiB is free. Including non-PyTorch memory, this process has 28.08 GiB memory in use. Of the allocated memory 26.72 GiB is allocated by PyTorch, and 881.42 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.71967882104218
+  },
+  {
+    "split": "train",
+    "clip_id": "328_2_5408_125811",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/328/328_2_5408_125811.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 54.01 GiB. GPU 0 has a total capacity of 44.39 GiB of which 35.22 GiB is free. Including non-PyTorch memory, this process has 9.17 GiB memory in use. Of the allocated memory 2.05 GiB is allocated by PyTorch, and 6.62 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.72820220887661
+  },
+  {
+    "split": "train",
+    "clip_id": "709_12_339224_456459",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/709/709_12_339224_456459.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 51.20 GiB. GPU 0 has a total capacity of 44.39 GiB of which 40.50 GiB is free. Including non-PyTorch memory, this process has 3.89 GiB memory in use. Of the allocated memory 2.03 GiB is allocated by PyTorch, and 1.36 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.5527459364384413
+  },
+  {
+    "split": "train",
+    "clip_id": "980_3_168188_365659",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/980/980_3_168188_365659.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 145.27 GiB. GPU 0 has a total capacity of 44.39 GiB of which 30.43 GiB is free. Including non-PyTorch memory, this process has 13.96 GiB memory in use. Of the allocated memory 2.58 GiB is allocated by PyTorch, and 10.88 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 65.97679568082094
+  },
+  {
+    "split": "train",
+    "clip_id": "43_0_992_100623",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_0_992_100623.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 36.98 GiB. GPU 0 has a total capacity of 44.39 GiB of which 33.26 GiB is free. Including non-PyTorch memory, this process has 11.13 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 8.72 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.8750044275075197
+  },
+  {
+    "split": "train",
+    "clip_id": "1718_10_164331_277933",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/1718/1718_10_164331_277933.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 48.08 GiB. GPU 0 hasa total capacity of 44.39 GiB of which 41.04 GiB is free. Including non-PyTorch memory, this process has 3.35 GiB memory in use. Of the allocated memory 2.01GiB is allocated by PyTorch, and 866.23 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.538936899974942
+  },
+  {
+    "split": "train",
+    "clip_id": "328_5_137494_199440",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/328/328_5_137494_199440.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.30 GiB. GPU 0 has a total capacity of 44.39 GiB of which 13.37 GiB is free. Including non-PyTorch memory, this process has 31.01 GiB memory in use. Of the allocated memory 30.31 GiB is allocated by PyTorch, and 215.16 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.183612607419491
+  },
+  {
+    "split": "train",
+    "clip_id": "43_10_227125_277197",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_10_227125_277197.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 9.34 GiB. GPU 0 has a total capacity of 44.39 GiB of which 8.99 GiB is free. Including non-PyTorch memory, this process has 35.40 GiB memory in use. Of the allocated memory 20.45 GiB is allocated by PyTorch, and 14.46 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 1.725368294864893
+  },
+  {
+    "split": "train",
+    "clip_id": "328_6_199505_358538",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/328/328_6_199505_358538.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 94.22 GiB. GPU 0 has a total capacity of 44.39 GiB of which 32.75 GiB is free. Including non-PyTorch memory, this process has 11.63 GiB memory in use. Of the allocated memory 2.31 GiBis allocated by PyTorch, and 8.82 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 45.22491995804012
+  },
+  {
+    "split": "train",
+    "clip_id": "536_0_0_74347",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/536/536_0_0_74347.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 20.59 GiB. GPU 0 has a total capacityof 44.39 GiB of which 19.22 GiB is free. Including non-PyTorch memory, this process has 25.16 GiB memory in use. Of the allocated memory 22.33 GiB is allocated by PyTorch, and 2.34 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2181061133742332
+  },
+  {
+    "split": "train",
+    "clip_id": "76_66_401026_466204",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/76/76_66_401026_466204.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 15.83 GiB. GPU 0 has a total capacity of 44.39 GiB of which 8.16 GiB is free. Including non-PyTorch memory, this process has 36.23 GiB memory in use. Of the allocated memory 33.39 GiB is allocated by PyTorch, and 2.34 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.447473680600524
+  },
+  {
+    "split": "train",
+    "clip_id": "120_3_11473_74635",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/120/120_3_11473_74635.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.86 GiB. GPU 0 has a total capacity of 44.39 GiB of which 12.31 GiB is free. Including non-PyTorch memory, this process has 32.08 GiB memory in use. Of the allocated memory 31.45 GiB isallocated by PyTorch, and 132.88 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.0550768300890923
+  },
+  {
+    "split": "train",
+    "clip_id": "188_20_265100_348825",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/188/188_20_265100_348825.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 26.12 GiB. GPU 0 has a total capacity of 44.39 GiB of which 7.68 GiB is free. Including non-PyTorch memory, this process has 36.71 GiB memory in use. Of the allocated memory 27.92 GiB is allocated by PyTorch, and 8.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.4141697827726603
+  },
+  {
+    "split": "train",
+    "clip_id": "339_0_992_82972",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/339/339_0_992_82972.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 25.04 GiB. GPU 0 has a total capacity of 44.39 GiB of which 12.11 GiB is free. Including non-PyTorch memory, this process has 32.28 GiB memory in use. Of the allocated memory 26.83 GiB is allocated by PyTorch, and 4.95 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.306604104116559
+  },
+  {
+    "split": "train",
+    "clip_id": "43_15_391121_513476",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_15_391121_513476.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 55.77 GiB. GPU 0 has a total capacity of 44.39 GiB of which 35.12 GiB is free. Including non-PyTorch memory, this process has 9.26 GiB memory in use. Of the allocated memory 2.07 GiB is allocated by PyTorch, and 6.70 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.5352184753865004
+  },
+  {
+    "split": "train",
+    "clip_id": "709_8_184062_285054",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/709/709_8_184062_285054.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 38.00 GiB. GPU 0 has a total capacity of 44.39 GiB of which 36.43 GiB is free. Including non-PyTorch memory, this process has 7.96 GiB memory in use. Of the allocated memory 1.92 GiB is allocated by PyTorch, and 5.54 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.7687465343624353
+  },
+  {
+    "split": "train",
+    "clip_id": "188_22_369485_433671",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/188/188_22_369485_433671.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 15.35 GiB. GPU 0 has a total capacity of 44.39 GiB of which 11.26 GiB is free. Including non-PyTorch memory, this process has 33.13 GiB memory in use. Of the allocated memory 32.43 GiB is allocated by PyTorch, and 207.52 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.4153086841106415
+  },
+  {
+    "split": "train",
+    "clip_id": "674_0_0_70938",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/674/674_0_0_70938.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 18.75 GiB. GPU 0 has a total capacityof 44.39 GiB of which 771.31 MiB is free. Including non-PyTorch memory, this process has 43.63 GiB memory in use. Of the allocated memory 39.28 GiB is allocated by PyTorch, and 3.86 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.616075301542878
+  },
+  {
+    "split": "train",
+    "clip_id": "1062_51_374014_437127",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/1062/1062_51_374014_437127.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.84 GiB. GPU 0 hasa total capacity of 44.39 GiB of which 12.35 GiB is free. Including non-PyTorch memory, this process has 32.03 GiB memory in use. Of the allocated memory 31.40 GiB is allocated by PyTorch, and 139.21 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.009846927598119
+  },
+  {
+    "split": "train",
+    "clip_id": "162_49_658045_719846",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/162/162_49_658045_719846.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.23 GiB. GPU 0 has a total capacity of 44.39 GiB of which 12.96 GiB is free. Including non-PyTorch memory, this process has 31.42 GiB memory in use. Of the allocated memory 30.17 GiB is allocated by PyTorch, and 773.17 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 1.6278970390558243
+  },
+  {
+    "split": "train",
+    "clip_id": "252_18_304210_356650",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/252/252_18_304210_356650.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 10.25 GiB. GPU 0 has a total capacity of 44.39 GiB of which 6.70 GiB is free. Including non-PyTorch memory, this process has 37.69 GiB memory in use. Of the allocated memory 22.28 GiB is allocated by PyTorch, and 14.91 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 1.7628322411328554
+  },
+  {
+    "split": "train",
+    "clip_id": "675_0_0_69082",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/675/675_0_0_69082.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 17.78 GiB. GPU 0 has a total capacityof 44.39 GiB of which 6.41 GiB is free. Including non-PyTorch memory, this process has 37.98 GiB memory in use. Of the allocated memory 37.33 GiB is allocated by PyTorch, and 159.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.3319374043494463
+  },
+  {
+    "split": "train",
+    "clip_id": "71_10_194880_295040",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/71/71_10_194880_295040.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 37.38 GiB. GPU 0 has a total capacity of 44.39 GiB of which 35.91 GiB is free. Including non-PyTorch memory, this process has 8.47 GiB memory in use. Of the allocated memory 1.91 GiB is allocated by PyTorch, and 6.06 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.795840837061405
+  },
+  {
+    "split": "train",
+    "clip_id": "43_19_557820_674607",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_19_557820_674607.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 50.81 GiB. GPU 0 has a total capacity of 44.39 GiB of which 31.36 GiB is free. Including non-PyTorch memory, this process has 13.03 GiB memory in use. Of the allocated memory 2.03 GiB is allocated by PyTorch, and 10.51 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.281209660694003
+  },
+  {
+    "split": "train",
+    "clip_id": "676_0_0_74283",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/676/676_0_0_74283.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 20.56 GiB. GPU 0 has a total capacityof 44.39 GiB of which 16.99 GiB is free. Including non-PyTorch memory, this process has 27.40 GiB memory in use. Of the allocated memory 22.30 GiB is allocated by PyTorch, and 4.61 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.070887206122279
+  },
+  {
+    "split": "train",
+    "clip_id": "71_11_295393_369740",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/71/71_11_295393_369740.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 20.59 GiB. GPU 0 has a total capacity of 44.39 GiB of which 16.95 GiB is free. Including non-PyTorch memory, this process has 27.43 GiB memory in use. Of the allocated memory 22.33 GiBis allocated by PyTorch, and 4.61 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.04288668371737
+  },
+  {
+    "split": "train",
+    "clip_id": "162_50_719943_795619",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/162/162_50_719943_795619.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 21.34 GiB. GPU 0 has a total capacity of 44.39 GiB of which 20.50 GiB is free. Including non-PyTorch memory, this process has 23.88 GiB memory in use. Of the allocated memory 23.08 GiB is allocated by PyTorch, and 311.57 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2723954636603594
+  },
+  {
+    "split": "train",
+    "clip_id": "283_0_0_70138",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/283/283_0_0_70138.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 18.33 GiB. GPU 0 has a total capacityof 44.39 GiB of which 5.26 GiB is free. Including non-PyTorch memory, this process has 39.12 GiB memory in use. Of the allocated memory 38.43 GiB is allocated by PyTorch, and 200.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.6879775263369083
+  },
+  {
+    "split": "train",
+    "clip_id": "71_13_384608_475134",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/71/71_13_384608_475134.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 30.53 GiB. GPU 0 has a total capacity of 44.39 GiB of which 23.73 GiB is free. Including non-PyTorch memory, this process has 20.66 GiB memory in use. Of the allocated memory 1.85 GiB is allocated by PyTorch, and 18.31 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2030795961618423
+  },
+  {
+    "split": "train",
+    "clip_id": "284_0_0_76587",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/284/284_0_0_76587.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 21.85 GiB. GPU 0 has a total capacityof 44.39 GiB of which 20.12 GiB is free. Including non-PyTorch memory, this process has 24.26 GiB memory in use. Of the allocated memory 23.61 GiB is allocated by PyTorch, and 165.79 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.5862042978405952
+  },
+  {
+    "split": "train",
+    "clip_id": "43_21_691523_754956",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_21_691523_754956.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 14.99 GiB. GPU 0 has a total capacity of 44.39 GiB of which 11.57 GiB is free. Including non-PyTorch memory, this process has 32.82 GiB memory in use. Of the allocated memory 31.71 GiBis allocated by PyTorch, and 631.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2444951459765434
+  },
+  {
+    "split": "train",
+    "clip_id": "16_0_0_94750",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/16/16_0_0_94750.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 33.45 GiB. GPU 0 has a total capacity of44.39 GiB of which 8.28 GiB is free. Including non-PyTorch memory, this process has 36.11 GiB memory in use. Of the allocated memory 35.32 GiB is allocated by PyTorch, and 293.28 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.9297190718352795
+  },
+  {
+    "split": "train",
+    "clip_id": "43_24_774193_846140",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_24_774193_846140.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 19.29 GiB. GPU 0 has a total capacity of 44.39 GiB of which 16.38 GiB is free. Including non-PyTorch memory, this process has 28.00 GiB memory in use. Of the allocated memory 21.01 GiBis allocated by PyTorch, and 6.50 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.0216757003217936
+  },
+  {
+    "split": "train",
+    "clip_id": "71_4_88718_152840",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/71/71_4_88718_152840.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 15.32 GiB. GPU 0 has a total capacity of 44.39 GiB of which 11.30 GiB is free. Including non-PyTorch memory, this process has 33.09 GiB memory in use. Of the allocated memory 32.37 GiB is allocated by PyTorch, and 227.89 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.452239353209734
+  },
+  {
+    "split": "train",
+    "clip_id": "267_31_431927_499458",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/267/267_31_431927_499458.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 16.99 GiB. GPU 0 has a total capacity of 44.39 GiB of which 7.97 GiB is free. Including non-PyTorch memory, this process has 36.42 GiB memory in use. Of the allocated memory 35.74 GiB is allocated by PyTorch, and 186.75 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.5961742345243692
+  },
+  {
+    "split": "train",
+    "clip_id": "43_28_934283_1054174",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_28_934283_1054174.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 53.55 GiB. GPU 0 has a total capacity of 44.39 GiB of which 34.75 GiB is free. Including non-PyTorch memory, this process has 9.63 GiB memory in use. Of the allocated memory 2.05 GiBis allocated by PyTorch, and 7.09 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.275541312992573
+  },
+  {
+    "split": "train",
+    "clip_id": "43_2_111634_177100",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/43/43_2_111634_177100.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 15.97 GiB. GPU 0 has a totalcapacity of 44.39 GiB of which 1.27 GiB is free. Including non-PyTorch memory, this process has 43.12 GiB memory in use. Of the allocated memory 33.67 GiB isallocated by PyTorch, and 8.94 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2275050338357687
+  },
+  {
+    "split": "train",
+    "clip_id": "16_6_147864_247416",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/16/16_6_147864_247416.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 36.92 GiB. GPU 0 has a totalcapacity of 44.39 GiB of which 4.41 GiB is free. Including non-PyTorch memory, this process has 39.98 GiB memory in use. Of the allocated memory 38.83 GiB isallocated by PyTorch, and 663.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.2098772171884775
+  },
+  {
+    "split": "train",
+    "clip_id": "710_0_0_126852",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/710/710_0_0_126852.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 59.95 GiB. GPU 0 has a total capacity of 44.39 GiB of which 31.42 GiB is free. Including non-PyTorch memory, this process has 12.96 GiB memory in use. Of the allocated memory 2.10 GiB is allocated by PyTorch, and 10.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.6041256822645664
+  },
+  {
+    "split": "train",
+    "clip_id": "983_2_38694_384703",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/983/983_2_38694_384703.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 21.12 GiB. GPU 0 has a total capacity of 44.39 GiB of which 20.78 GiB is free. Including non-PyTorch memory, this process has 23.60 GiB memory in use. Of the allocated memory 22.52 GiB is allocated by PyTorch, and 601.12 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 6.729346930980682
+  },
+  {
+    "split": "train",
+    "clip_id": "176_8_255114_322116",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/176/176_8_255114_322116.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 16.73 GiB. GPU 0 has a total capacity of 44.39 GiB of which 6.51 GiB is free. Including non-PyTorch memory, this process has 37.87 GiB memory in use. Of the allocated memory 35.20 GiBis allocated by PyTorch, and 2.17 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.2218807227909565
+  },
+  {
+    "split": "train",
+    "clip_id": "265_12_361116_427990",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/265/265_12_361116_427990.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 16.66 GiB. GPU 0 has a total capacity of 44.39 GiB of which 6.58 GiB is free. Including non-PyTorch memory, this process has 37.81 GiB memory in use. Of the allocated memory 35.07 GiB is allocated by PyTorch, and 2.24 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 1.7998463995754719
+  },
+  {
+    "split": "train",
+    "clip_id": "265_13_428087_509363",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/265/265_13_428087_509363.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 24.61 GiB. GPU 0 has a total capacity of 44.39 GiB of which 17.00 GiB is free. Including non-PyTorch memory, this process has 27.39 GiB memory in use. Of the allocated memory 26.40 GiB is allocated by PyTorch, and 505.14 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 2.7559376042336226
+  },
+  {
+    "split": "train",
+    "clip_id": "265_6_114467_236054",
+    "source": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/train/audio/265/265_6_114467_236054.wav",
+    "status": "failed",
+    "error": "OutOfMemoryError: CUDA out of memory. Tried to allocate 55.07 GiB. GPU 0 has a total capacity of 44.39 GiB of which 35.15 GiB is free. Including non-PyTorch memory, this process has 9.23 GiB memory in use. Of the allocated memory 2.06 GiB is allocated by PyTorch, and 6.68 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+    "elapsed_seconds": 3.783073615282774
+  }
+]

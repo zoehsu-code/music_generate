@@ -1,6 +1,6 @@
 # Video-to-Music Experiment Log
 
-Updated 2026-11-10. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
+Updated 2026-11-17. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
 
 ## Data and Artifact Locations
 
@@ -8,7 +8,8 @@ Updated 2026-11-10. Dates come from saved outputs, commits, and research discuss
 | --- | --- | --- |
 | OSSL-v2 dataset root on Lighthouse | `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/data/OSSL-v2/` | The 2026-11-10 manifest audit found all test videos and audio and all train audio. The latest scan during the supplemental download found 23,773 of 31,011 train videos present and nonempty, with 7,238 missing. |
 | Batch code on Lighthouse | `/home/xvming/OSSL_Event_Alignment/music_generate/` | Confirmed from `PROJECT_DIR` in the cluster-local `lighthouse_paths.sh` on 2026-11-10. |
-| Batch event-curve output on Lighthouse | `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves/` | Configured as `RESULT_ROOT` in `lighthouse_paths.sh`. Full extraction progress remains open. |
+| Batch event-curve output on Lighthouse | `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves/` | User-provided Lighthouse shell output on 2026-11-16 reconfirmed the path and counted 31,011 Train raw curve files and 31,011 metadata files. Manifest correspondence and array integrity remain unverified. |
+| Train MusicFM output on Lighthouse | `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/music_event_curves/msd_l7_wav_run01/train/` | Configured for the successful four-clip smoke test and full array 28176562 submitted by the user on 2026-11-16. Full output counts and integrity are pending. |
 | DINOv2 model cache on Lighthouse | `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/cache/huggingface/` | Configured as `HF_HOME` in `lighthouse_paths.sh`. The batch launcher reads models from its `hub/` subdirectory. |
 | Official dataset on Hugging Face | [`McAuley-Lab/OSSL-v2`](https://huggingface.co/datasets/McAuley-Lab/OSSL-v2) | Dataset card checked on 2026-11-10. It lists 31,011 train pairs and 3,332 test pairs, with one MP4 and one WAV per pair. |
 | Test-50 inputs on Mac | [`analysis-data/ossl-test/`](../../music_generate/analysis-data/ossl-test/) | The older local checkout contains 50 soundtrack WAVs and 50 raw video event curves. |
@@ -52,12 +53,60 @@ Slurm accounting confirms that job `27987221_0` (`ossl-events`) completed under 
 - Submitted Slurm array `28122011` with `slurm/lighthouse_ossl.sbatch --splits train` under account and partition `aimusic_project`. The array has 64 shards and allows two concurrent tasks. It extracts DINOv2 video event curves and timestamps for the Train manifest.
 - The first queue snapshot showed tasks 0 and 1 running on `lh2300`, with tasks 2–63 pending under `JobArrayTaskLimit`. The most recent video audit before submission had 7,238 missing files while the supplemental download was in progress. A later stdout sample showed 10 completed clips from each of the first two shards, with no failures in the 20 displayed lines. Per-clip processing time averaged 7.5 seconds in that sample, ranging from 2.9 to 21.5 seconds. Final extraction counts are pending.
 - The configured output directory is `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves/train/`. Slurm stdout and stderr are in the Lighthouse checkout under `logs/ossl-28122011_<task>.out` and `logs/ossl-28122011_<task>.err`.
+- **2026-11-16 count audit.** User-provided shell output from `lh-login2`
+  reconfirmed `RESULT_ROOT` and found 31,011 `*_raw_event_curve.npy` files and
+  31,011 `metadata.json` files recursively under Train. Example paths follow
+  `train/<movie_id>/<clip_id>/<clip_id>_raw_event_curve.npy`. The shell reported
+  `MUSIC_RESULT_ROOT` unset. These counts match the expected Train size but do
+  not establish exact manifest coverage, numerical integrity or final job state.
 
 ## EXP-07 · November 10 · Temporal Shift Test
 
 - Reused all 50 saved Test-50 curves and evaluated Pearson r at −2, −1, −0.5, 0, +0.5, +1, and +2 seconds. Each clip used the same video anchors at all shifts, trimming 2 seconds at each end and linearly interpolating at half-sample offsets. Positive shifts compare video with later music.
 - Mean r peaked at +1 second (**+0.046** versus **−0.017** at zero). Peak shifts were positive for 26 clips, negative for 18, and zero for 6. The mean absolute change at ±0.5 seconds was approximately 0.15. In the original bottom 10, 7 clips gained at least 0.20 at their best tested shift, and 3 changed from negative to positive on the fixed support.
 - These are descriptive results for the selected subset. Twenty-five peaks landed at the bounds of the tested range. Verified all 350 values against saved lag diagnostics or independent half-sample interpolation. Published to GitHub in commit `774ec99`. [Experiment report and outputs](reports/ossl-test-50/temporal-shift/README.md) · [Analysis script](scripts/analyze_temporal_shift.py) · [GitHub report](https://github.com/zoehsu-code/music_generate/tree/main/reports/ossl-test-50/temporal-shift#readme)
+
+## EXP-08 · November 16 · Train MusicFM Extraction
+
+- **Code and environment.** Published implementation at `b2851e28431b98a2dc16f211c9818d9f68178809`.
+  The user confirmed the batch CLI and shell syntax checks on Lighthouse,
+  torch/torchaudio 2.8.0+cu128 and einops 0.8.1. All three pinned MusicFM assets
+  were downloaded into the project scratch cache and passed SHA-256/size checks.
+- **Inputs and settings.** OSSL-v2 Train soundtrack WAVs selected from the
+  31,011-entry manifest; dataset revision intended to remain
+  `3ed5a37d933084e5ec134e2138b8faa156cf021b` (cluster snapshot not reverified).
+  MusicFM-MSD layer 7, mono 24 kHz, float32 CUDA inference, 25 Hz features,
+  offset-1 raw cosine curves and midpoint timestamps, no smoothing/resampling.
+  Model loaded once per shard; features are not saved by default.
+- **Smoke test.** User submitted job `28176555`. Supplied stdout records CUDA
+  and completed=4, skipped=0, failed=0; supplied stderr was empty. Clips were
+  `0_0_1824_10960`, `0_10_114691_115970`, `0_11_145432_146999`, and
+  `0_12_157946_159129`. The first clip had 91.37 seconds of audio and elapsed
+  6.73 seconds including model loading. Final Slurm state and independent array
+  validation have not been supplied.
+- **Full extraction submitted, completion pending.** User reported
+  `Submitted batch job 28176562` after the full Train submission command:
+  `--array=0-63%2`, account/partition `aimusic_project`, one GPU, four CPUs,
+  32 GB RAM and 12 hours per task, `--splits train --expected-count 31011`.
+  Follow-up user-provided summaries on 2026-11-17 cover all 64 unique shards:
+  completed=30,950, skipped=4, failed=57, totaling 31,011 assignments. Thus
+  30,954 clips (99.816%) were reported completed or validated/skipped; 36 shards
+  reported at least one failure. Independent output count and numerical audit
+  remain pending. The attachment ends at the failure grep command and does not
+  include the full failure records. A subsequent attachment on 2026-11-17
+  supplied all 57 unique failures: every record reports CUDA OutOfMemoryError
+  on a GPU with 44.39 GiB total capacity. The largest single failed allocation
+  was 145.27 GiB for `980_3_168188_365659`; larger GPU memory alone is not
+  established as sufficient. Saved evidence: `musicfm-28176562-failures.json`.
+  On 2026-11-17 the user explicitly deferred all 57 failures and requested
+  downstream processing of available curves. Do not retry them in this phase.
+- **Artifacts.** Output root is
+  `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/music_event_curves/msd_l7_wav_run01/`;
+  per-clip `music_raw.npz` and `metadata.json` live under `train/<movie>/<clip>/`.
+  Per-shard stdout/stderr are in the cluster checkout's
+  `logs/music-28176562_<task>.out` and `.err`; unique JSONL logs are in the
+  output root's `_logs/`. Completed smoke-test outputs should be validated and
+  skipped by the full run. Existing video outputs are separate.
 
 ## DATA-01 · November 10 · Lighthouse Download Audit
 
@@ -74,7 +123,21 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
 
 ## Open Research Tasks
 
-- **Train MusicFM submission preparation (2026-11-16, not submitted).** Added
+- **Available Train paired analysis (2026-11-17, prepared, not submitted).**
+  Added `analyze_saved_ossl.py`, `music_alignment_metrics.py`, and
+  `slurm/lighthouse_alignment.sbatch`; instructions in
+  `slurm/ALIGNMENT_SUBMISSION.md`. Analyze the 30,954 reported available pairs,
+  explicitly excluding the 57 deferred OOM IDs. No encoder reruns. Match Test-50
+  standardization, 25 Hz shared grid, Hann-31, zero-lag Pearson and mean/median
+  absolute difference; include Hann-61 and fixed-support lag sensitivity.
+  Quadrants use medians of this run's quality-ok subset. Unit tests passed (2);
+  independent reproduction of three saved metrics for all 50 Test-50 pairs
+  had maximum absolute error 1.11e-16. No Train scores have been computed locally
+  and no analysis Slurm job has been submitted. Exclusion may bias duration mix.
+
+- **Train MusicFM extraction (EXP-08, submitted 2026-11-16).** Check array
+  `28176562`, aggregate shard summaries, and validate all 31,011 outputs against
+  the manifest before paired analysis. Preparation history: added
   `extract_ossl_music_batch.py`, `slurm/lighthouse_music.sbatch`, and
   `slurm/MUSIC_SUBMISSION.md` locally. Reused the older Test-50 encoder's
   `load_musicfm`/`encoder_bundle` support. Proposed configuration: MusicFM-MSD
@@ -82,13 +145,14 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
   64 shards with two concurrent tasks. WAV is the default to match Test-50;
   explicit MP4 input is supported in a separate output root. Scratch output
   paths in the submission guide are proposed, not verified existing locations.
-  No cluster changes, model downloads or Slurm submissions have been performed.
+  Preparation initially performed no cluster changes; subsequent user-provided
+  installation, verified downloads and submissions are recorded in EXP-08.
   Local validation: six audio/video batch and audio tests passed, including
   synthetic model reuse, disjoint MP4 sharding, failure isolation, compatible
   resume and corrupt-output rejection; `bash -n` passed for the new launcher.
   Tests do not establish real MusicFM CUDA performance or Lighthouse readiness.
 
-- **Train videos and curve extraction.** Repeat the file audit after the supplemental download. Check the number of extracted curves separately.
+- **Train videos and curve extraction.** Repeat the source-file audit after the supplemental download. The 2026-11-16 curve-file counts match 31,011; exact manifest coverage, timestamps and numerical integrity still require validation.
 - **Visual event curves as a generation condition.** The conditioning approach has been discussed. Training, inference, and controlled comparison results are pending. [Research discussion](chatgpt-conversation://6af1f44e-5c70-83ea-967d-ae2ca18846e7)
 
 ## Entry Format
