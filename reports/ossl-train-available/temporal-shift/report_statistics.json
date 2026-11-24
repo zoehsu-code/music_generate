@@ -1,0 +1,33 @@
+{
+  "completed": 30944,
+  "movie_ids": 1648,
+  "aggregate_peak_s": 1.0,
+  "mean_at_peak": 0.010875823687058236,
+  "fixed_zero_mean": 0.0013662807462462108,
+  "peak_mean_gain": 0.009509542940813133,
+  "fraction_improved_at_aggregate_peak": 0.5168368665977249,
+  "positive_best": 14234,
+  "negative_best": 13655,
+  "zero_best": 3055,
+  "boundary_best": 13609,
+  "mean_best_of_seven_gain": 0.2785363605960658,
+  "median_best_of_seven_gain": 0.21747094364182296,
+  "equal_movie_mean_profile": [
+    0.0020596846946890177,
+    0.0011290237483569045,
+    -0.0024354669229052976,
+    0.0011944146772593042,
+    0.006360974401346328,
+    0.014089427966506049,
+    0.0098241078928812
+  ],
+  "source_sha256": {
+    "temporal_shift.png": "75664e3268540c0a70ccb410bcd065e9bd8129e3af53581ef200d8c5a47d5860",
+    "summary.json": "381fdc49e30f56ed00da1638bb5d91769d86caaf4dec335a1a633b30f017265b",
+    "failures.csv": "aea7d22b5ee6afd4e2b88cb15f2f5a4da2ca70fe70180324b059bbc04104e982",
+    "aggregate.csv": "30539488dc54ad39d442436224f8587af03b50f4c05f50ae2387769ef1ab619c",
+    "analysis_config.json": "dbdad12cf85e7ca99db1bdd1156476b47c517b2279e5b775fa04f2fbc71b4dd3",
+    "per_clip.csv": "c5bd20e2df1de467e57ec8afb723f2cbb242f5a8b5eecadf96cc8ad0cad5c287",
+    "excluded_quality.csv": "a1cf14b612882726bd138b49945ad3ee6626e6afb4fc8b6442fcf8747c44b8f2"
+  }
+}

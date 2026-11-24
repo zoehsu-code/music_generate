@@ -423,3 +423,10 @@ disjoint sharding. It does not measure actual Lighthouse GPU throughput.
 ### Rebuild the OSSL test-50 report from saved curves
 
 Run `python3 scripts/build_ossl_report.py` from the repository root. This uses only the saved `aligned_curves.csv` files; no encoders, model weights, original media, or third-party Python packages are needed. It preserves existing Pearson scores/ranks and adds per-sample mean and median absolute difference (lower is better), difference curves, and report tables. Push report changes to `main` to deploy through `.github/workflows/pages.yml`. For the first deployment, enable **Settings → Pages → Source → GitHub Actions** in the repository.
+
+## Train temporal-shift reports
+
+- [Pearson temporal-shift report](https://zoehsu-code.github.io/music_generate/train/temporal-shift/report.html): 30,944 successful clips, seven fixed-support shifts.
+- [Absolute-difference temporal-shift report](https://zoehsu-code.github.io/music_generate/train/shift-difference/report.html): mean/median absolute differences on the same cohort, with Pearson comparisons.
+
+Both reports include source tables and provenance. The tested optima are descriptive and do not establish a universal music delay.

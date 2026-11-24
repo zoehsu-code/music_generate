@@ -1,0 +1,35 @@
+{
+  "source_scores_sha256": "a4cca161ab7ba48b09c0bcd87bf4435063e26e67d5893dfabbabb4bfd80a88da",
+  "expected_scored": 30953,
+  "eligible_before_limit": 30946,
+  "selected": 30946,
+  "shifts_seconds": [
+    -2.0,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "rate_hz": 25,
+  "hann_window": 31,
+  "trim_each_end_seconds": 2,
+  "minimum_anchor_samples": 125,
+  "order": "trim padded audio centers; standardize native; interpolate; Hann smooth; trim anchors; shift",
+  "lag_sign": "positive delta: corr(video(t), music(t+delta)); music events occur later",
+  "half_sample_shifts": "linear interpolation in sample coordinates; no wrap or extrapolation",
+  "baseline": "fixed-support zero, not original full-support zero",
+  "source_selection": "quality_flag == ok in prior analysis; no excluded OOM recovery",
+  "bottom_group": "lowest ceil(20%) of original quality-ok full-support Pearson, ties by clip ID",
+  "tie_break": "exact ties: smallest absolute shift, then negative shift",
+  "limit": null,
+  "video_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves",
+  "music_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/music_event_curves/msd_l7_wav_run01",
+  "caveats": [
+    "Best-of-seven gain is selection-biased; not proof of true delay",
+    "Boundary peaks do not identify an optimum outside the tested range",
+    "Bottom-group gains are selected using original scores and may regress to the mean",
+    "Movie-clustered data; clip IQR is not a confidence interval"
+  ]
+}

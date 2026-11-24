@@ -1,0 +1,30 @@
+{
+  "source_scored": 30953,
+  "selected": 30946,
+  "quality_excluded": 7,
+  "completed": 30944,
+  "failed": 2,
+  "best_shift_counts": {
+    "2.0": 6858,
+    "1.0": 4246,
+    "-2.0": 6751,
+    "-0.5": 2949,
+    "-1.0": 3955,
+    "0.5": 3130,
+    "0.0": 3055
+  },
+  "boundary_best_count": 13609,
+  "max_fixed_zero_reference_error": 1.887379141862766e-15,
+  "mean_profile": [
+    0.001973626260694706,
+    0.0017472055484339004,
+    -0.0013012599497131158,
+    0.0013662807462462108,
+    0.005615932686419717,
+    0.010875823687058236,
+    0.008151965457678462
+  ],
+  "fixed_zero_mean": 0.0013662807462462108,
+  "mean_gain_over_fixed_zero": 0.2785363605960658,
+  "note": "Descriptive seven-shift diagnostic; no per-clip curve plots or model inference."
+}

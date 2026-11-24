@@ -1,6 +1,6 @@
 # Video-to-Music Experiment Log
 
-Updated 2026-11-23. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
+Updated 2026-11-24. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
 
 ## Data and Artifact Locations
 
@@ -159,6 +159,33 @@ Slurm accounting confirms that job `27987221_0` (`ossl-events`) completed under 
   adds the Train report under `train/`. SSH push succeeded; Pages deployment
   status has not yet been independently verified.
 
+## EXP-10 · November 24 · Train Temporal Shift Results
+
+- **Run and scope.** User submitted job `28224289` using code `e98beb5` and
+  supplied the complete downloaded result directory on 2026-11-24. Of 30,946
+  quality-ok selected pairs from EXP-09, 30,944 completed all seven shifts
+  (216,608 correlations) across 1,648 movie IDs. Two pairs had near-constant
+  fixed-support curves: `1181_5_469486_472397` and `108_0_224_1279`. The seven
+  original review rows and 57 deferred OOM clips were not reprocessed.
+- **Results.** Clip-weighted mean r peaks at +1 s (0.010875823687058236), versus
+  fixed-zero 0.0013662807462462108, a gain of 0.009509542940813133. Positive,
+  negative and zero best-tested shifts occur for 14,234, 13,655 and 3,055 clips.
+  There are 13,609 boundary optima at +/-2 s. Mean best-of-seven gain is
+  0.2785363605960658, an optimistic selection-biased diagnostic, not evidence
+  for a universal correction. Equal-movie means also peak at +1 s (0.01408943).
+- **Validation and artifacts.** Recomputed every per-clip best shift and gain,
+  all group aggregates, counts and profiles from the complete supplied CSVs.
+  Maximum fixed-zero discrepancy is 1.8874e-15. Source hashes are recorded in
+  `reports/ossl-train-available/temporal-shift/report_statistics.json`.
+  Source location is
+  `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_temporal_shift_28224289/`;
+  local source copy is `~/Downloads/ossl-train-shift-complete/`.
+  Built the English standalone HTML report, three aggregate figures, full
+  searchable profiles and source tables using `scripts/build_train_shift_report.py`.
+  No per-clip curve figures or model inference were generated. Charts visually
+  inspected; embedded browser search/filter/sort/pagination checked with a DOM
+  stub. The user requested GitHub publication of both shift reports; included in the combined publication on 2026-11-24.
+
 ## DATA-01 · November 10 · Lighthouse Download Audit
 
 On `lh-login2`, checked the expected MP4 and WAV paths for existence and nonzero size against the unique clip IDs in the local train and test manifests. The total and unique ID counts for both splits matched the official counts.
@@ -174,7 +201,7 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
 
 ## Open Research Tasks
 
-- **Train temporal shift preparation (2026-11-23; not run on Lighthouse).**
+- **Train temporal shift experiment (submitted 2026-11-23; results in EXP-10).**
   User requested expansion of temporal-shift analysis to the approximately
   30,000 successful samples. Added `analyze_train_temporal_shift.py` and
   `slurm/lighthouse_temporal_shift.sbatch`, with submission instructions in
@@ -187,8 +214,16 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
   no per-clip plots or aligned arrays. CPU-only launcher with unique job output.
   Local tests: 4 passed, including positive-lag sign and half-sample interpolation,
   support/constant rejection, provenance/failure accounting and all 350 saved Test-50 correlations at 1e-12
-  tolerance. Shell syntax passed. Train raw curves remain on Lighthouse; no
-  full Train temporal-shift results or new Slurm job ID exist yet.
+  tolerance. Shell syntax passed. Train raw curves remain on Lighthouse;
+  downloaded full-run results and validation are recorded in EXP-10.
+  Published preparation code via SSH to GitHub main in commit `e98beb5`;
+  user chose full execution without a separate 20-pair cluster smoke test and
+  reported `Submitted batch job 28224289`. Intended invocation has no `--limit`:
+  30,946 eligible pairs times seven shifts, CPU-only, account/partition
+  `aimusic_project`. Subsequent result counts are recorded in EXP-10.
+  Default outputs are
+  `/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_temporal_shift_28224289/`;
+  stdout/stderr are `logs/shift-28224289.out` and `.err` in the cluster checkout.
 
 - **Available Train paired analysis (2026-11-17, initial run recorded in EXP-09).**
   Added `analyze_saved_ossl.py`, `music_alignment_metrics.py`, and
@@ -227,10 +262,10 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
 
 After each run, record the experiment ID, date, status, question, dataset version and sample scope, code revision and parameters, completed and failed counts, results, limitations, and artifact locations. Keep proposed work in the open tasks section. Preserve the history of retired or superseded runs and record the reason and replacement experiment ID when known. When a data or artifact location changes, update the location and verification status in the table above.
 
-## EXP-11 · November 24 · Train Shift Absolute Differences (Prepared)
+## EXP-11 · November 24 · Train Shift Absolute Differences
 
-- **Status.** Code and CPU Slurm launcher prepared at user request; cluster run
-  not submitted. No experimental absolute-difference results are claimed.
+- **Status.** User submitted job 28228611 and downloaded the completed outputs.
+  Results verified locally on 2026-11-24: 30,944 completed, zero failed, 1,648 movies.
 - **Scope.** Exact 30,944 successful IDs from job 28224289 per_clip.csv; read
   saved video/MusicFM curves and original alignment scores. Reuse seven shifts,
   native standardization, 25 Hz interpolation, Hann-31 and fixed 2 s trims.
@@ -248,5 +283,23 @@ After each run, record the experiment ID, date, status, question, dataset versio
   weighting, batch accounting, reference mismatch rejection and overwrite
   refusal. Shell syntax passed. Synthetic aggregate figure rendered and
   visually inspected; synthetic values are not experiment results.
-- **Limitations.** Full saved Train curves remain on Lighthouse; cluster results
-  pending. Best-of-seven reductions are selection-biased; IQR is not a CI.
+- **Results and verification.** Exact clip IDs, movie IDs and anchors match the
+  prior Pearson run; prior per-clip SHA-256 matches the job configuration.
+  Recomputed all group aggregates, per-clip minima, reductions and counts.
+  Maximum reported seven-shift Pearson reconstruction discrepancy is zero.
+  Clip-weighted MAE is lowest at +0.5 s: 0.4240888977881714, compared with
+  0.4242536895455437 at zero (0.03884274% reduction). Clip-weighted average
+  median absolute difference is lowest at zero; equal-movie means for both
+  metrics are lowest at +0.5 s. At +1 s both clip-weighted difference summaries
+  are worse than zero, unlike the Pearson peak at +1 s.
+- **Report.** Built scripts/build_shift_difference_report.py and the English
+  reports/ossl-train-available/shift-difference/report.html with embedded charts,
+  downloadable source tables, metric comparison and provenance fingerprints.
+  Local source: /Users/zoehsu/Downloads/ossl-train-shift-difference/. Cluster
+  source: analysis/train_shift_difference_28228611/ under the scratch project root.
+  Charts visually inspected; HTML embedded PNGs and download targets checked.
+  Analysis code and launcher published via SSH in commit 769ee4a; both shift reports are included in the combined GitHub publication requested
+  on 2026-11-24.
+- **Limitations.** Raw saved Train curves remain on Lighthouse and were not
+  re-read locally. Best-of-seven reductions are selection-biased; IQR is not
+  a CI. No significance testing or perceptual-quality claim is made.

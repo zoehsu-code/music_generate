@@ -1,0 +1,38 @@
+{
+  "original_scores": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_saved_curves_28185053/alignment_scores.csv",
+  "original_scores_sha256": "a4cca161ab7ba48b09c0bcd87bf4435063e26e67d5893dfabbabb4bfd80a88da",
+  "prior_shift_scores": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_temporal_shift_28224289/per_clip.csv",
+  "prior_shift_scores_sha256": "c5bd20e2df1de467e57ec8afb723f2cbb242f5a8b5eecadf96cc8ad0cad5c287",
+  "expected_completed": 30944,
+  "selected": 30944,
+  "limit": null,
+  "video_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/event_curves",
+  "music_root": "/scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/music_event_curves/msd_l7_wav_run01",
+  "shifts_seconds": [
+    -2.0,
+    -1.0,
+    -0.5,
+    0.0,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "rate_hz": 25,
+  "hann_window": 31,
+  "trim_each_end_seconds": 2,
+  "minimum_anchor_samples": 125,
+  "preprocessing": "Remove padded audio centers; standardize native curves separately; interpolate to shared 25 Hz grid; Hann-31; fixed anchors; shift music.",
+  "lag_sign": "positive delta compares video(t) with music(t+delta)",
+  "mean_absolute_difference": "mean_t abs(video(t)-music(t+delta)) on fixed anchors",
+  "median_absolute_difference": "median_t abs(video(t)-music(t+delta)) on fixed anchors",
+  "units": "Separately standardized native-curve units after smoothing; no per-shift renormalization.",
+  "cohort": "Exact successful IDs in prior per_clip.csv; deferred OOM/review/previous failures remain excluded.",
+  "baseline": "Fixed-support zero; not the older full-support absolute difference.",
+  "validation": "All seven Pearson values and anchor count must reconstruct the prior run (atol 1e-10). Metadata input hashes must match original scores; media hashes are not recomputed.",
+  "tie_break": "Exact ties: smallest absolute shift, then negative shift.",
+  "caveats": [
+    "Best-of-seven reductions are selection-biased, not evidence of a true delay.",
+    "Between-clip IQR is not a confidence interval.",
+    "Median across clips and median over timestamps are different operations."
+  ]
+}

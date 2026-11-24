@@ -1,0 +1,20 @@
+{
+  "completed": 30944,
+  "movies": 1648,
+  "failed": 0,
+  "max_pearson_reference_error": 0.0,
+  "clip_weighted_mae_zero": 0.4242536895455437,
+  "clip_weighted_mae_plus_half": 0.4240888977881714,
+  "mae_plus_half_reduction": 0.00016479175737232898,
+  "mae_plus_half_reduction_percent": 0.03884273995327,
+  "source_sha256": {
+    "summary.json": "437a886f633491b4b84b31c4d5612b93b379fcfd5f7f4c29c7a52c9690535621",
+    "failures.csv": "b3d6c94bffc5ddebac37c5e3b09ee0c91b9be43cb23f84b918d9dcdd0ec09367",
+    "aggregate.csv": "7c3e819e5500c1045a6d972a4d55313538a635e21806cd257f6edb2b557a19dd",
+    "analysis_config.json": "ed452f8fe79a89574e60be8c3e6711294389de3a169ea748f02ce54b3ffee649",
+    "absolute_difference_shift.png": "ee0ec80bc66d956bca20d8069fcf81b38215e0a1499c375d2bd29152c8654ebb",
+    "per_clip.csv": "7ec32c4e2927a1117e5765456da4180738e8c638cfe34ee2e0f907439f96cb83"
+  },
+  "prior_pearson_sha256": "c5bd20e2df1de467e57ec8afb723f2cbb242f5a8b5eecadf96cc8ad0cad5c287",
+  "validation": "Recomputed all groups, minima, reductions and counts from per-clip results; matched prior cohort and source hash. Raw curves were not re-read locally."
+}
