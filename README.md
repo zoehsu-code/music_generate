@@ -8,6 +8,10 @@ WAV or MP4 inputs, one model load per shard, explicit scratch cache, atomic raw
 curve outputs, verified resume and isolated failures. The existing
 `lighthouse_ossl.sbatch` remains the video-only workflow.
 
+## Train temporal shift experiment
+
+[Run the seven-shift experiment on saved Train curves](slurm/TEMPORAL_SHIFT_SUBMISSION.md). CPU-only, fixed-support comparison with no model reruns or per-clip plots.
+
 ## Analysis Results
 
 [Read the full Train report (30,953 scored pairs)](reports/ossl-train-available/README.md) · [Open the interactive Train report](https://zoehsu-code.github.io/music_generate/train/report.html)

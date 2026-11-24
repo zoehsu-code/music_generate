@@ -1,6 +1,6 @@
 # Video-to-Music Experiment Log
 
-Updated 2026-11-17. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
+Updated 2026-11-23. Dates come from saved outputs, commits, and research discussions. The project investigates whether visual and soundtrack changes align in time and whether visual event curves can condition music generation.
 
 ## Data and Artifact Locations
 
@@ -153,6 +153,11 @@ Slurm accounting confirms that job `27987221_0` (`ossl-events`) completed under 
   Chart PNGs visually checked; HTML JavaScript search, filtering and sorting
   tested using a DOM stub. Browser visual check could not launch in this
   environment. No GitHub upload performed in this report-generation phase.
+- **Publication.** Full report, all 30,953 score rows, charts, statistics and
+  builder uploaded via SSH to GitHub main in commit `dec1c58` after explicit
+  user authorization. Pages staging now retains Test-50 at the site root and
+  adds the Train report under `train/`. SSH push succeeded; Pages deployment
+  status has not yet been independently verified.
 
 ## DATA-01 · November 10 · Lighthouse Download Audit
 
@@ -168,6 +173,22 @@ Both `metadata.csv` and `public_train_test_remapped.pkl` were present and nonemp
 The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d933084e5ec134e2138b8faa156cf021b`, as pinned in the project README. The first attempt using the Lighthouse Python module and `hf` stopped with HTTP 429 at the Hugging Face Xet token endpoint. Hugging Face login subsequently succeeded and the retry began. A follow-up scan during the download found 23,773 of 31,011 train MP4s present and nonempty, with 7,238 missing and zero empty. This is a progress snapshot. The final post-download audit is pending.
 
 ## Open Research Tasks
+
+- **Train temporal shift preparation (2026-11-23; not run on Lighthouse).**
+  User requested expansion of temporal-shift analysis to the approximately
+  30,000 successful samples. Added `analyze_train_temporal_shift.py` and
+  `slurm/lighthouse_temporal_shift.sbatch`, with submission instructions in
+  `slurm/TEMPORAL_SHIFT_SUBMISSION.md`. Default scope: 30,946 quality-ok pairs
+  from EXP-09, excluding seven review rows; continue deferring the 57 OOM clips.
+  Match EXP-07 shifts (-2, -1, -0.5, 0, +0.5, +1, +2 seconds), 25 Hz/Hann-31,
+  fixed 2-second endpoint trims, half-sample interpolation and >=125 anchors.
+  Verify reconstructed full and fixed-support zero scores against EXP-09.
+  Output per-clip and group scores, one aggregate plot, provenance and failures;
+  no per-clip plots or aligned arrays. CPU-only launcher with unique job output.
+  Local tests: 4 passed, including positive-lag sign and half-sample interpolation,
+  support/constant rejection, provenance/failure accounting and all 350 saved Test-50 correlations at 1e-12
+  tolerance. Shell syntax passed. Train raw curves remain on Lighthouse; no
+  full Train temporal-shift results or new Slurm job ID exist yet.
 
 - **Available Train paired analysis (2026-11-17, initial run recorded in EXP-09).**
   Added `analyze_saved_ossl.py`, `music_alignment_metrics.py`, and
