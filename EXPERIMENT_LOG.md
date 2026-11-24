@@ -226,3 +226,27 @@ The supplemental download targets train MP4s at Hugging Face revision `3ed5a37d9
 ## Entry Format
 
 After each run, record the experiment ID, date, status, question, dataset version and sample scope, code revision and parameters, completed and failed counts, results, limitations, and artifact locations. Keep proposed work in the open tasks section. Preserve the history of retired or superseded runs and record the reason and replacement experiment ID when known. When a data or artifact location changes, update the location and verification status in the table above.
+
+## EXP-11 · November 24 · Train Shift Absolute Differences (Prepared)
+
+- **Status.** Code and CPU Slurm launcher prepared at user request; cluster run
+  not submitted. No experimental absolute-difference results are claimed.
+- **Scope.** Exact 30,944 successful IDs from job 28224289 per_clip.csv; read
+  saved video/MusicFM curves and original alignment scores. Reuse seven shifts,
+  native standardization, 25 Hz interpolation, Hann-31 and fixed 2 s trims.
+- **Metrics.** Per-clip mean and median of pointwise absolute curve differences
+  at every shift; clip-weighted and equal-movie profiles and original quadrants.
+  Fixed-support zero differs from older full-support zero. No per-shift
+  restandardization. All seven Pearson values and anchor counts must reproduce
+  the previous run; metadata input hashes must match original scores.
+- **Artifacts.** analyze_train_shift_difference.py, tests/test_shift_difference.py,
+  slurm/lighthouse_shift_difference.sbatch and slurm/SHIFT_DIFFERENCE_SUBMISSION.md.
+  Default output: /scratch/aimusic_project_root/xvming/OSSL_Event_Alignment/analysis/train_shift_difference_JOBID/.
+  Existing output roots are refused; no original curves or reports are changed.
+- **Validation.** Seven local tests passed (three new and four prior shift tests),
+  including half-sample interpolation, amplitude-offset sensitivity, movie
+  weighting, batch accounting, reference mismatch rejection and overwrite
+  refusal. Shell syntax passed. Synthetic aggregate figure rendered and
+  visually inspected; synthetic values are not experiment results.
+- **Limitations.** Full saved Train curves remain on Lighthouse; cluster results
+  pending. Best-of-seven reductions are selection-biased; IQR is not a CI.
